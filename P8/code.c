@@ -18,23 +18,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Función para agregar un nodo al final de la lista
-void append(struct Node** head, int data) {
-    struct Node* newNode = createNode(data);
-    if (*head == NULL) {
-        *head = newNode;
-        (*head)->next = *head;
-        (*head)->prev = *head;
-    } else {
-        struct Node* last = (*head)->prev;
-        last->next = newNode;
-        newNode->prev = last;
-        newNode->next = *head;
-        (*head)->prev = newNode;
-    }
-}
-
-// Función para agregar un nodo en una posición dada
 void insert(struct Node** head, int data, int pos) {
     if (pos == 1) {
         struct Node* newNode = createNode(data);
@@ -62,7 +45,6 @@ void insert(struct Node** head, int data, int pos) {
     }
 }
 
-// Función para eliminar un nodo en una posición dada
 void delete(struct Node** head, int pos) {
     if (*head == NULL) {
         return;
